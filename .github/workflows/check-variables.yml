@@ -1,15 +1,15 @@
-name: varialbes-check
+name: check variables
 on:
   push:
     branches:
       - main
     paths:
-      - 'trigger/variables*'
+      - 'check-variables/**'
   pull_request:
     branches:
       - main
     paths:
-      - 'trigger/variables*'
+      - 'check-variables/**'
   workflow_dispatch:
 
 jobs:
