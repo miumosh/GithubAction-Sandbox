@@ -2,7 +2,10 @@ name: varialbes-check
 on:
   push:
     branches: [main]
-    paths: [./trigger/variables.txt]
+    paths: [trigger/variables.txt]
+  pull_request:
+    branches: [main]
+    paths: [trigger/variables.txt]
   workflow_dispatch:
 
 jobs:

@@ -1,11 +1,11 @@
 name: check branch name
 on:
   push:
-    branches: [main] # Target Branch
-    paths: [./trigger/branch-name.txt]
+    branches: [main]
+    paths: [trigger/branch-name.txt]
   pull_request:
-    branches: [main] # Target Branch
-    paths: [./trigger/branch-name.txt]
+    branches: [main] 
+    paths: [trigger/branch-name.txt]
   workflow_dispatch:
 
 jobs:
