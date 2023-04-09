@@ -1,0 +1,18 @@
+name: varialbes-check
+on:
+  push:
+    branches: [main]
+    paths: [./trigger/variables.txt]
+  workflow_dispatch:
+
+jobs:
+  dump_variables:
+    name: Dump variables
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"

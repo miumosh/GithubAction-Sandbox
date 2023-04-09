@@ -1,0 +1,26 @@
+name: check branch name
+on:
+  push:
+    branches: [main] # Target Branch
+    paths: [./trigger/branch-name.txt]
+  pull_request:
+    branches: [main] # Target Branch
+    paths: [./trigger/branch-name.txt]
+  workflow_dispatch:
+
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get source and target branch names
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            SOURCE_BRANCH=${{ github.ref }}
+            TARGET_BRANCH=${{ github.ref }}
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            SOURCE_BRANCH=${{ github.event.pull_request.head.ref }}
+            TARGET_BRANCH=${{ github.event.pull_request.base.ref }}
+          fi
+          echo "Event name: ${{ github.event_name }}"
+          echo "Source branch: $SOURCE_BRANCH"
+          echo "Target branch: $TARGET_BRANCH"
