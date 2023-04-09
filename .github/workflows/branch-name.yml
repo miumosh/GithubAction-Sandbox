@@ -1,15 +1,15 @@
 name: check branch name
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'trigger/branch*'
+#     branches:
+#       - main
+#     paths:
+#       - 'trigger/branch*'
   pull_request:
-    branches:
-      - main 
-    paths:
-      - 'trigger/branch*'
+#     branches:
+#       - main 
+#     paths:
+#       - 'trigger/branch*'
   workflow_dispatch:
 
 jobs:
